@@ -1,0 +1,44 @@
+ENVIRONMENT.YML
+- Steek in deze file enkel welke packages minimaal nodig zijn om je code draaiende te krijgen.
+- Vermijd 100den bestanden in je .YAML file... Stop dus ZEKER NIET gewoon de base environment in een .YAML file!
+- Een andere developer kan deze environment activeren. Bedoeling is dan dat jouw code in deze omgeving kan runnen.
+
+
+README.md
+- Wordt via GitHub gecreëerd, en moet terechtkomen in de project-folder.
+- Leg in README.md uit hoe men jouw code werkende kan krijgen!
+- Leg in README.md uit waar de ENVIRONMENT.YAML of ENVIRONMENT.YML file staat (best practice: in de project-folder zelf).
+- README.md is (verplichte) technische documentatie waarbij je er van uit mag gaan dat een (nieuwe) developer dit leest.
+
+
+SETTINGS.JSON
+- SETTINGS.JSON is een bestand met algemene instellingen zoals bestandslocaties, emailadres, kleuren,...
+
+
+ALGEMEEN
+- Verwijder folders in de project-folder die je niet nodig hebt.
+
+
+.GITOGNORE.TXT
+- Kan je best via GitHub creëren, en moet terechtkomen in de project-folder. Daar gaan al wat standaard folders en files in staan.
+- Met dit bestand geef je aan welke irrelevante bestanden en mappen Git moet negeren, zodat ze niet worden meegenomen in het versiebeheer.
+- Neem de volgende bestanden zeker op in je .gitignore:
+  - Grote databestanden (vaak je input data). Deze horen niet thuis op github. Bewaar ze apart of elders online.
+  - Temporary files, vaak gegenereerd door development tools, text editors,...
+  - Bestanden met gevoelige informatie.
+  - Je kan een template gebruiken: https://github.com/github/gitignore
+
+Patterns are relative to the location of the .gitignore file.
+If you ignore a directory, all its subdirectories and files will also be ignored.
+
+filename.txt   # To ignore a specific file
+*.log          # To ignore all files with a certain extension
+/logs/         # To ignore all files in a specific directory
+/logs/*.log    # To ignore all files with a certain pattern in a specific directory
+/build/        # To ignore a directory and all its contents
+
+debug.log
+/temp/         # To ignore files or directories with a certain name in any location:
+
+**/debug.log   # To ignore files with a specific name in any subdirectory
+!important.txt # To negate a pattern (include files that would otherwise be ignored)

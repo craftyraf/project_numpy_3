@@ -1,0 +1,8 @@
+In deze folder:
+- Input: ruwe, onbewerkte, onaangepaste databestanden die werden gedownload of aangeleverd.
+- Intermediate: bewerkte bestanden, opgeschoonde data, vb. json bestandjes (input) die je hebt omgezet naar excel (intermediate)
+- Output: Data die wordt gebruikte voor visualisaties, in rapporten,...
+
+Je hebt typisch 2 notebooks:
+- Een notebook die Input omzet naar Intermediate,
+- Een notebook die Intermediate omzet naar Output.
