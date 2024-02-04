@@ -1,6 +1,3 @@
-# CODE VAN DE MEEST ADVANCED VERSIE, vb 3 aparte blokjes in jupyter notebook,
-# Alle soorten inputs moet ie mee omkunnen.
-
 from PIL import Image
 import numpy as np
 
@@ -18,9 +15,10 @@ matplotlib.use('TkAgg', force=True)  # Images don't load without this...
 
 image = Image.open(loc_input_img)
 np_image = np.array(image)
-plt.imshow(np_image)
-plt.show()
 
+plt.imshow(np_image)
+# plt.savefig(os.path.join(output_path, 'original.jpg'))
+plt.show()
 
 
 
@@ -52,45 +50,6 @@ plt.show()
 
 
 
-############## STEP 6 - YOUR OWN MANIPULATIONS
-# Pixelize
-plt.imshow(img.pixelize(np_image, step=10))
-plt.show()
-
-def create_colorful_big_one(colors):
-    if len(colors) % 4 != 0:
-        print("The amount of values in your list should be 8 or greater, and "
-              "a multiple of 4.")
-    else:
-        grid_length = (len(colors) / 4) + 1
-        row_1 = img.tile()
-
-
-
-create_colorful_big_one(['b','b','b','b','r','r','g','g','g','g','r','r'])
-
-
-
-# Define a function create_colorful_big_one(colors) where colors is a list of colors (starting left
-# top and rotating clockwise). The image from Step 4 is the result of calling the function
-# create_colorful_big_one(['b', 'b', 'b', 'b', 'r', 'r', 'g', 'g', 'g', 'g', 'r',
-# 'r']).
-
-## Manipulation 3
-
-# Creating the background first
-row_1 = img.tile(img.color(np_image, 'b'), 1, 4)  # 1 row with 4 blue
-row_2 = img.tile(img.color(np_image, 'r'), 1, 4)  # 1 row with 4 red
-row_3 = img.tile(img.color(np_image, 'r'), 1, 4)  # 1 row with 4 red
-row_4 = img.tile(img.color(np_image, 'g'), 1, 4)  # 1 row with 4 green
-result_manipulation_3 = np.vstack([row_1, row_2, row_3, row_4])
-
-# Putting the big one on top of it
-d = np.shape(np_image)
-result_manipulation_3[d[0]:3*d[0], d[0]:3*d[0], :] = img.enlarge(np_image, 2)
-plt.imshow(result_manipulation_3)
-# plt.savefig(os.path.join(output_path, 'manipulation_3.jpg'))
-plt.show()
 
 
 
@@ -98,10 +57,6 @@ plt.show()
 
 
 
-
-enlarged_image = img.enlarge(np_image, 10)
-plt.imshow(enlarged_image)
-plt.show()
 
 
 
@@ -158,17 +113,17 @@ plt.show()
 
 
 ## Manipulation 1
-result_manipulation_1 = img.tile(np_image, 3, 8)
+result_manipulation_1 = bld.tile(np_image, 3, 8)
 plt.imshow(result_manipulation_1)
 # plt.savefig(os.path.join(output_path, 'STEP_4__manipulation_1.jpg'))
 plt.show()
 
 
 ## Manipulation 2
-row_1 = img.tile(np_image, 1, 6)
-row_2 = img.tile(img.h_flip(np_image), 1, 6)
-row_3 = img.tile(img.v_flip(np_image), 1, 6)
-row_4 = img.tile(img.h_flip(img.v_flip(np_image)), 1, 6)
+row_1 = bld.tile(np_image, 1, 6)
+row_2 = bld.tile(img.h_flip(np_image), 1, 6)
+row_3 = bld.tile(img.v_flip(np_image), 1, 6)
+row_4 = bld.tile(img.h_flip(img.v_flip(np_image)), 1, 6)
 result_manipulation_2 = np.vstack([row_1, row_2, row_3, row_4])
 plt.imshow(result_manipulation_2)
 # plt.savefig(os.path.join(output_path, 'STEP_4__manipulation_2.jpg'))
@@ -188,7 +143,7 @@ right = np.vstack([top_right, bottom_right])
 little_square = np.hstack([left, right])
 
 # Tiling the 2x2 image
-result = img.tile(little_square, 3, 8)
+result = bld.tile(little_square, 3, 8)
 plt.imshow(result)
 # plt.savefig(os.path.join(output_path, 'STEP_4__manipulation_2b.jpg'))
 plt.show()
@@ -197,10 +152,10 @@ plt.show()
 ## Manipulation 3
 
 # Creating the background first
-row_1 = img.tile(img.color(np_image, 'b'), 1, 4)  # 1 row with 4 blue
-row_2 = img.tile(img.color(np_image, 'r'), 1, 4)  # 1 row with 4 red
-row_3 = img.tile(img.color(np_image, 'r'), 1, 4)  # 1 row with 4 red
-row_4 = img.tile(img.color(np_image, 'g'), 1, 4)  # 1 row with 4 green
+row_1 = bld.tile(img.color(np_image, 'b'), 1, 4)  # 1 row with 4 blue
+row_2 = bld.tile(img.color(np_image, 'r'), 1, 4)  # 1 row with 4 red
+row_3 = bld.tile(img.color(np_image, 'r'), 1, 4)  # 1 row with 4 red
+row_4 = bld.tile(img.color(np_image, 'g'), 1, 4)  # 1 row with 4 green
 result_manipulation_3 = np.vstack([row_1, row_2, row_3, row_4])
 
 # Putting the big one on top of it
@@ -237,4 +192,45 @@ input_matrix_2b = [[0, 1, 2, 3], [2, 3, 0, 1], [1, 0, 3, 2], [3, 2, 1, 0]]
 result_2b = bld.grid_with_flips(np_image, input_matrix_2b)
 plt.imshow(result_2b)
 # plt.savefig(os.path.join(output_path, 'STEP_5__manipulation_2b.jpg'))
+plt.show()
+
+
+## Manipulation 3a - big one
+input_matrix_3a = ['b', 'b', 'b', 'b', 'r', 'r', 'g', 'g', 'g', 'g', 'r', 'r']
+big_one = bld.create_colorful_big_one(np_image, input_matrix_3a)
+plt.imshow(big_one)
+# plt.savefig(os.path.join(output_path, 'STEP_5__manipulation_3a.jpg'))
+plt.show()
+
+
+## Manipulation 3b - bigger one
+input_matrix_3b = ['r', 'g', 'b', 'r', 'g', 'b', 'r', 'g', 'b', 'r', 'g', 'b', 'r', 'g', 'b', 'r', 'g', 'b', 'r', 'g']
+big_one = bld.create_colorful_big_one(np_image, input_matrix_3b)
+plt.imshow(big_one)
+# plt.savefig(os.path.join(output_path, 'STEP_5__manipulation_3b.jpg'))
+plt.show()
+
+
+## Manipulation 3c - big one, but with len(matrix) % 4 != 0
+input_matrix_3c = ['r', 'g', 'b', 'r', 'g', 'b', 'r', 'g', 'b']
+big_one = bld.create_colorful_big_one(np_image, input_matrix_3c)
+plt.imshow(big_one)
+# plt.savefig(os.path.join(output_path, 'STEP_5__manipulation_3c.jpg'))
+plt.show()
+
+
+#####################################
+### STEP 6 - "Your own manipulations"
+#####################################
+
+## Pixelized image
+pixelized_image = img.pixelize(np_image, step=10)  # step 10 = 10 pixels form 1 big pixel
+plt.imshow(pixelized_image)
+# plt.savefig(os.path.join(output_path, 'STEP_6__manipulation_1.jpg'))
+plt.show()
+
+## Quantized colors
+quantized_image = img.color_quantization(np_image, 54)  # factor 54 = manually chosen optimum
+plt.imshow(quantized_image)
+# plt.savefig(os.path.join(output_path, 'STEP_6__manipulation_2.jpg'))
 plt.show()

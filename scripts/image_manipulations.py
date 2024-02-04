@@ -1,3 +1,11 @@
+"""
+Module Name: image_manipulations
+Description: This module contains a collection of manipulations of a single image.
+Author: Raf Mesotten
+"""
+
+
+# Importing necessary packages
 import numpy as np
 
 
@@ -17,14 +25,6 @@ def v_flip(image):
     """
     v_flipped_image = np.flip(image, axis=0)
     return v_flipped_image
-
-
-def tile(image, rows, columns):
-    """
-    Tile the input image horizontally (rows) and vertically (columns).
-    """
-    tiled_image = np.tile(image, (rows, columns, 1))
-    return tiled_image
 
 
 def color(image, color):
@@ -51,12 +51,29 @@ def color(image, color):
         return image  # In case you've entered an invalid color
 
 
+def color_quantization(image, factor):
+    """
+    Apply color quantization to an image. The function processes each color
+    channel independently and rounds the pixel values to the nearest multiple
+    of the specified factor. The shape of the returned array is the same as the
+    input image.
+    """
+    quantized_image = image.copy()
+    for color in range(3):
+        quantized_image[:, :, color] = (quantized_image[:, :, color] // factor) * (factor)
+
+    return quantized_image
+
+
 def enlarge(image, factor):
     """
-    Enlarge the given image by repeating its pixels along X- and Y- axes.
+    Enlarge the given image by repeating its pixels along the X and Y axes.
+    The parameter 'factor' is the factor by which to enlarge the image. If the
+    provided factor is not within the valid range (1 to 20, for safety reasons),
+    a message is printed, and the original image is returned without modification.
     """
     if not (1 <= factor <= 20):
-        print("Pick an integer between 1 and 20.")
+        print("Pick an integer number between 1 and 20.")
         return image
 
     else:
