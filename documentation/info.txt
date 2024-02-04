@@ -1,3 +1,0 @@
-In deze folder:
-- Alle documentatie (slides, PDF,...) met uitleg omtrent code.
-- Kopieer nooit documentatie van sharepoints, confluences,... maar zet de link ernaartoe in deze folder (of in README.md)

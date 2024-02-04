@@ -1,4 +1,0 @@
-In deze folder:
-- vb. json bestandjes
-- vb. dictionaries om decodering te doen
-- vb. configuraties van modellen (instellingen of configuraties die worden gekozen vóór het trainen van een machine learning-model = hyperparameters)

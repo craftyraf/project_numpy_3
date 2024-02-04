@@ -1,9 +1,1 @@
-In deze folder:
-- Analyses
-- Visualisaties
-- Experimenten
-- ...
-
-Je hebt typisch 2 notebooks:
-- Een notebook die Input omzet naar Intermediate,
-- Een notebook die Intermediate omzet naar Output.
+Deze notebook zet data/input om naar data/output.
