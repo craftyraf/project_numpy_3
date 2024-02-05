@@ -5,10 +5,12 @@
 # Contact info: rafmesotten@gmail.com, +32498272776
 
 # Set up your virtual environment
-- Import 'environment.yml' (in the same folder as 'README.md')
+- Import 'environment.yml' (in the same folder as 'README.md'), e.g. with Anaconda Navigator -> Environments -> Import
+- Start -> Anaconda Powershell Prompt -> typ: "conda activate environment" (in case 'environment' is the name of the environment you just imported)
+- Next, still in Anaconda Powershell Prompt, typ: "jupyter notebook", in order to open jupyter notebook.
 
 # Run the notebook 'Input_to_output.ipynb' to test the project
-- You can find this notebook in the the folder 'notebooks'
+- Navigate to the project folder, and the subfolder 'notebooks'. You can find this notebook in the the folder 'notebooks'.
 - This notebook turns the input image (in the folder data\input) into output images (in the folder data\output)
 - This notebook uses scripts from the folder 'scripts'.
 
