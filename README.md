@@ -12,6 +12,7 @@
 - Navigate to the project folder, and the subfolder 'notebooks'. You can find this notebook in the the folder 'notebooks'.
 - This notebook turns the input image (in the folder data\input) into output images (in the folder data\output)
 - This notebook uses scripts from the folder 'scripts'.
+- I've already designed some functions to be robust to incorrect input, such as showing the original image when an unknown color is selected and handling unusual list lengths in the 'create_colorful_big_one' function. I realize that there is room for optimization in this regard, but in my opinion that is outside the scope of the exercise.
 
 ### The scripts that are used by the notebook:
 - image_manipulations.py is a script with functions that manipulate the input image (e.g. change color, flip horizontally, pixelize an image, quantize colors,...)
