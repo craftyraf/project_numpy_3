@@ -2,6 +2,7 @@
 - Name student: Raf Mesotten
 - Date project: Feb. 2024
 - Project folder: project_numpy_3
+- Github: https://github.com/craftyraf/project_numpy_3
 
 ### Set up your virtual environment
 - Import 'environment.yml' (in the same folder as 'README.md'), e.g. with Anaconda Navigator -> Environments -> Import
