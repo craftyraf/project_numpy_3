@@ -2,7 +2,6 @@
 # Project folder: project_numpy_3
 # Name student: Raf Mesotten
 # Date project: Feb. 2024
-# Contact info: rafmesotten@gmail.com, +32498272776
 
 # Set up your virtual environment
 - Import 'environment.yml' (in the same folder as 'README.md'), e.g. with Anaconda Navigator -> Environments -> Import
