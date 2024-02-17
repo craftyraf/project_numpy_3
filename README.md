@@ -7,7 +7,7 @@
 ### Set up your virtual environment
 - Import 'environment.yml' (in the same folder as 'README.md'), e.g. with Anaconda Navigator -> Environments -> Import
 - Start -> Anaconda Powershell Prompt -> typ: "conda activate environment" (in case 'environment' is the name of the environment you just imported)
-- Next, still in Anaconda Powershell Prompt, typ: "jupyter notebook", in order to open jupyter notebook.
+- Next, still in Anaconda Powershell Prompt, typ: "jupyter notebook", in order to open jupyter notebook. In case the notebook is in a different directory, e.g. D:\Documents, typ: "jupyter notebook --notebook-dir D:\Documents".
 
 ### Run the notebook 'Input_to_output.ipynb' to test the project
 - Navigate to the project folder, and the subfolder 'notebooks'. You can find this notebook in the the folder 'notebooks'.
